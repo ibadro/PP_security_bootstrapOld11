@@ -5,7 +5,6 @@ import com.example.pp_security_bootstrap1.exception.NotFoundException;
 import com.example.pp_security_bootstrap1.model.User;
 import com.example.pp_security_bootstrap1.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,7 +1,7 @@
-package com.example.pp_security_bootstrap1.service;
+package pp.security_bootstrap1.service;
 
-import com.example.pp_security_bootstrap1.model.Role;
-import com.example.pp_security_bootstrap1.repository.RoleRepo;
+import pp.security_bootstrap1.model.Role;
+import pp.security_bootstrap1.repository.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

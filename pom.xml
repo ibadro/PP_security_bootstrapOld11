@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pp</groupId>
-    <artifactId>security_bootstrap</artifactId>
+    <artifactId>security_bootstrap1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>security_bootstrap</name>
-    <description>security_bootstrap</description>
+    <name>security_bootstrap1</name>
+    <description>security_bootstrap1</description>
     <properties>
         <java.version>17</java.version>
     </properties>

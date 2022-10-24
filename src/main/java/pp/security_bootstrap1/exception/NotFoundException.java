@@ -1,4 +1,4 @@
-package com.example.pp_security_bootstrap1.exception;
+package pp.security_bootstrap1.exception;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(String message) {

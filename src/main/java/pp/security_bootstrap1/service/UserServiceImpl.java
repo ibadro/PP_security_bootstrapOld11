@@ -1,9 +1,9 @@
-package com.example.pp_security_bootstrap1.service;
+package pp.security_bootstrap1.service;
 
 
-import com.example.pp_security_bootstrap1.exception.NotFoundException;
-import com.example.pp_security_bootstrap1.model.User;
-import com.example.pp_security_bootstrap1.repository.UserRepo;
+import pp.security_bootstrap1.exception.NotFoundException;
+import pp.security_bootstrap1.model.User;
+import pp.security_bootstrap1.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

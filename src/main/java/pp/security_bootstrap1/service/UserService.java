@@ -1,7 +1,7 @@
-package com.example.pp_security_bootstrap1.service;
+package pp.security_bootstrap1.service;
 
 
-import com.example.pp_security_bootstrap1.model.User;
+import pp.security_bootstrap1.model.User;
 import org.springframework.data.crossstore.ChangeSetPersister;
 
 import javax.transaction.Transactional;

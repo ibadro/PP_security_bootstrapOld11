@@ -1,7 +1,7 @@
-package com.example.pp_security_bootstrap1.controller;
+package pp.security_bootstrap1.controller;
 
-import com.example.pp_security_bootstrap1.model.User;
-import com.example.pp_security_bootstrap1.service.UserService;
+import pp.security_bootstrap1.model.User;
+import pp.security_bootstrap1.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;

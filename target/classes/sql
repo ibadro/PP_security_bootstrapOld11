@@ -1,0 +1,39 @@
+create table bootstrap_db.users
+(
+    id bigint not null  auto_increment,
+    last_name varchar(255),
+    first_name varchar(255),
+    age bigint,
+    email varchar(255),
+    password varchar(255),
+    primary key (id)
+);
+create table bootstrap_db.roles
+(
+    id bigint not null  auto_increment,
+    name varchar(255),
+    primary key (id)
+);
+
+create table bootstrap_db.users_roles
+(
+    user_id bigint not null,
+    roles_id bigint not null,
+    primary key (user_id,roles_id),
+    foreign key (user_id) references bootstrap_db.users(id),
+    foreign key (roles_id) references bootstrap_db.roles(id)
+);
+insert into bootstrap_db.roles (id, name)
+values  (1, 'ROLE_USER'),
+        (2, 'ROLE_ADMIN');
+
+insert into bootstrap_db.users (id, first_name, last_name, age, email, password)
+values  (1, 'Admin', 'Adminov', 30, 'admin@mail.ru', '$2y$10$2uhUg/wjo2js4I4JJSDccuzuti3tFBZqHw1q5dDqszpa7Be0jjJbG'),
+        (2, 'User', 'Userov', 25, 'user@mail.ru', '$2y$10$2uhUg/wjo2js4I4JJSDccuzuti3tFBZqHw1q5dDqszpa7Be0jjJbG'),
+        (3, 'Test', 'Testov', 20, 'test@mail.ru', '$2y$10$2uhUg/wjo2js4I4JJSDccuzuti3tFBZqHw1q5dDqszpa7Be0jjJbG');
+
+insert into bootstrap_db.users_roles (user_id, roles_id)
+values  (2, 1),
+        (3, 1),
+        (1, 2),
+        (1, 1);

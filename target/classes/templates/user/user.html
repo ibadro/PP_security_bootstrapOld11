@@ -7,6 +7,35 @@
 </head>
 
 <body>
+<!--/* Black header */-->
+<div class="container" style="max-width: 100%">
+    <div class="row navbar navbar-dark bg-dark pd-0 pt-0">
+        <div class="col">
+            <b class="text-white" th:utext="${authorizedUser.username}"></b>
+            <span class="text-white" th:utext="' with roles: '"></span>
+            <th:block th:each="role : ${authorizedUser.roles}">
+                <span class="text-white" th:utext="${#strings.substringAfter(role.name, 'ROLE_')}"></span>
+            </th:block>
+        </div>
+        <div class="col-1"><a class="nav-link active text-white-50" href="/">Logout</a></div>
+    </div>
+</div>
+
+<!--/* Menu buttons (admin and user) on the left */-->
+<div class="container-fluid g-0 align-items-start">
+    <div class="row g-0" th:with="isAdmin=${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+
+        <div class="col-2 nav flex-column nav-pills fs-5 py-1 my-3" id="v-pills-tab" role="tablist"
+             aria-orientation="vertical" style="width: 280px;">
+            <a th:if="${isAdmin}" class="nav-link active" id="v-pills-admin-tab" data-bs-toggle="pill"
+               href="#v-pills-admin" role="tab"
+               aria-controls="v-pills-admin" aria-selected="false">Admin</a>
+            <a th:class="${isAdmin} ? 'nav-link' : 'nav-link active'" id="v-pills-user-tab" data-bs-toggle="pill"
+               href="#v-pills-user" role="tab"
+               aria-controls="v-pills-user" aria-selected="true">User</a>
+        </div>
+
+        <div class="col tab-content" id="v-pills-tabContent">
 <!--/* Content for ROLE_USER */-->
 <div th:class="${isUser} ? 'tab-pane fade' : 'tab-pane fade show active'"
      id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">

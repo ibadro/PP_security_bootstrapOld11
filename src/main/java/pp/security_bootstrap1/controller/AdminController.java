@@ -30,7 +30,7 @@ public class AdminController {
                 userService.findByUsername(principal.getName()));
         model.addAttribute("users", userService.findAllUsers());
         model.addAttribute("newUser", new User());
-        return "admin";
+        return "admin/admin";
     }
 
     @PostMapping("/save")

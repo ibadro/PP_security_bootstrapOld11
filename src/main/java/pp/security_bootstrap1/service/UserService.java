@@ -1,13 +1,16 @@
 package pp.security_bootstrap1.service;
 
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import pp.security_bootstrap1.model.User;
 import org.springframework.data.crossstore.ChangeSetPersister;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
     @Transactional
     List<User> findAllUsers();
 
@@ -16,6 +19,8 @@ public interface UserService {
 
     @Transactional
     User findByUsername(String username);
+
+    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
     @Transactional
     void saveUser(User user);

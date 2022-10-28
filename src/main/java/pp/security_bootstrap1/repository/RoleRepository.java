@@ -1,11 +1,13 @@
-package pp.security_bootstrap1.service;
+package pp.security_bootstrap1.repository;
 
-
+import org.springframework.stereotype.Repository;
 import pp.security_bootstrap1.model.Role;
 
 import java.util.Set;
 
-public interface RoleService {
+
+@Repository
+public interface RoleRepository  {
     Set<Role> getAllRoles();
 
     Set<Role> getByName(String name);

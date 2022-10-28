@@ -1,34 +1,24 @@
 package pp.security_bootstrap1.service;
 
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import pp.security_bootstrap1.model.User;
-import org.springframework.data.crossstore.ChangeSetPersister;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
+
 public interface UserService extends UserDetailsService {
-    @Transactional
-    List<User> findAllUsers();
 
-    @Transactional
-    User findUserById(Long id) throws ChangeSetPersister.NotFoundException;
+    void add(User user);
 
-    @Transactional
-    User findByUsername(String username);
+    User getUserById(Long id);
 
-    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+    void delete(Long id);
 
-    @Transactional
-    void saveUser(User user);
+    void update(User user, Long id);
 
-    @Transactional
-    void updateUser(Long id, User updatedUser) throws ChangeSetPersister.NotFoundException;
+    List<User> getAllUsers();
 
-    @Transactional
-    void deleteUser(Long id) throws ChangeSetPersister.NotFoundException;
+    User getUserByName(String username);
 
 }

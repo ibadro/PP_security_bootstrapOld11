@@ -1,21 +1,46 @@
 package pp.security_bootstrap1.service;
 
-import pp.security_bootstrap1.model.Role;
-import pp.security_bootstrap1.repository.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import pp.security_bootstrap1.model.Role;
+import pp.security_bootstrap1.repository.RoleRepository;
+
+
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Service
-public class RoleServiceImpl implements RoleService {
-    private final RoleRepo roleRepo;
+public class RoleServiceImpl implements RoleService{
+
+    private final RoleRepository roleRepository;
 
     @Autowired
-    public RoleServiceImpl(RoleRepo roleRepo) {
-        this.roleRepo = roleRepo;
+    public RoleServiceImpl( RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+
     }
 
     @Override
-    public Role findRoleByName(String name) {
-        return roleRepo.findRoleByName(name);
+    public Set<Role> getAllRoles() {
+        return roleRepository.getAllRoles();
     }
+
+    @Override
+    public Set<Role> getByName(String name) {
+        Set<Role> roles = new HashSet<>();
+        for (Role role : getAllRoles()) {
+            if (name.contains(role.getName()))
+                roles.add(role);
+        }
+        return roles;
+    }
+
+    @Override
+    @Transactional
+    public void saveRole(Role role) {
+        roleRepository.saveRole(role);
+    }
+
 }
